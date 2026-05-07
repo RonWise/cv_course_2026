@@ -1,0 +1,206 @@
+===================ModelNet40 Dataset===================
+Training with translation 0.2
+Evaluating with translation 0.0
+=============================================
+
+
+===================Network===================
+MinkowskiFCNN(
+  (mlp1): Sequential(
+    (0): MinkowskiLinear(in_features=3, out_features=32, bias=False)
+    (1): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): MinkowskiLeakyReLU()
+  )
+  (conv1): Sequential(
+    (0): MinkowskiConvolution(in=32, out=48, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+    (1): MinkowskiBatchNorm(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): MinkowskiLeakyReLU()
+  )
+  (conv2): Sequential(
+    (0): MinkowskiConvolution(in=48, out=64, kernel_size=[3, 3, 3], stride=[2, 2, 2], dilation=[1, 1, 1])
+    (1): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): MinkowskiLeakyReLU()
+  )
+  (conv3): Sequential(
+    (0): MinkowskiConvolution(in=64, out=96, kernel_size=[3, 3, 3], stride=[2, 2, 2], dilation=[1, 1, 1])
+    (1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): MinkowskiLeakyReLU()
+  )
+  (conv4): Sequential(
+    (0): MinkowskiConvolution(in=96, out=128, kernel_size=[3, 3, 3], stride=[2, 2, 2], dilation=[1, 1, 1])
+    (1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): MinkowskiLeakyReLU()
+  )
+  (conv5): Sequential(
+    (0): Sequential(
+      (0): MinkowskiConvolution(in=336, out=256, kernel_size=[3, 3, 3], stride=[2, 2, 2], dilation=[1, 1, 1])
+      (1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): MinkowskiLeakyReLU()
+    )
+    (1): Sequential(
+      (0): MinkowskiConvolution(in=256, out=512, kernel_size=[3, 3, 3], stride=[2, 2, 2], dilation=[1, 1, 1])
+      (1): MinkowskiBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): MinkowskiLeakyReLU()
+    )
+    (2): Sequential(
+      (0): MinkowskiConvolution(in=512, out=1024, kernel_size=[3, 3, 3], stride=[2, 2, 2], dilation=[1, 1, 1])
+      (1): MinkowskiBatchNorm(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): MinkowskiLeakyReLU()
+    )
+  )
+  (pool): MinkowskiMaxPooling(kernel_size=[3, 3, 3], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (global_max_pool): MinkowskiGlobalMaxPooling(mode=PoolingMode.GLOBAL_MAX_POOLING_PYTORCH_INDEX)
+  (global_avg_pool): MinkowskiGlobalAvgPooling(mode=PoolingMode.GLOBAL_AVG_POOLING_PYTORCH_INDEX)
+  (final): Sequential(
+    (0): Sequential(
+      (0): MinkowskiLinear(in_features=2048, out_features=512, bias=False)
+      (1): MinkowskiBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): MinkowskiLeakyReLU()
+    )
+    (1): MinkowskiDropout()
+    (2): Sequential(
+      (0): MinkowskiLinear(in_features=512, out_features=512, bias=False)
+      (1): MinkowskiBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): MinkowskiLeakyReLU()
+    )
+    (3): MinkowskiLinear(in_features=512, out_features=40, bias=True)
+  )
+)
+=============================================
+
+
+SGD (
+Parameter Group 0
+    dampening: 0
+    foreach: None
+    initial_lr: 0.1
+    lr: 0.1
+    maximize: False
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+<torch.optim.lr_scheduler.CosineAnnealingLR object at 0x7f277dcb84d0>
+Iter: 0, Loss: 3.751e+00
+Iter: 100, Loss: 3.025e+00
+Iter: 200, Loss: 2.317e+00
+Iter: 300, Loss: 2.263e+00
+Iter: 400, Loss: 2.114e+00
+Iter: 500, Loss: 2.548e+00
+Iter: 600, Loss: 2.202e+00
+Iter: 700, Loss: 1.856e+00
+Iter: 800, Loss: 1.992e+00
+Iter: 900, Loss: 1.889e+00
+Iter: 1000, Loss: 1.909e+00
+Validation accuracy: 0.7674230145867099. Best accuracy: 0.7674230145867099
+Iter: 1100, Loss: 1.975e+00
+Iter: 1200, Loss: 1.705e+00
+Iter: 1300, Loss: 1.835e+00
+Iter: 1400, Loss: 1.858e+00
+Iter: 1500, Loss: 1.767e+00
+Iter: 1600, Loss: 1.781e+00
+Iter: 1700, Loss: 1.778e+00
+Iter: 1800, Loss: 1.631e+00
+Iter: 1900, Loss: 1.883e+00
+Iter: 2000, Loss: 1.558e+00
+Validation accuracy: 0.8103727714748784. Best accuracy: 0.8103727714748784
+Iter: 2100, Loss: 1.761e+00
+Iter: 2200, Loss: 1.944e+00
+Iter: 2300, Loss: 1.509e+00
+Iter: 2400, Loss: 1.688e+00
+Iter: 2500, Loss: 1.606e+00
+Iter: 2600, Loss: 1.694e+00
+Iter: 2700, Loss: 1.624e+00
+Iter: 2800, Loss: 1.588e+00
+Iter: 2900, Loss: 1.618e+00
+Iter: 3000, Loss: 1.825e+00
+Validation accuracy: 0.8318476499189628. Best accuracy: 0.8318476499189628
+Iter: 3100, Loss: 1.538e+00
+Iter: 3200, Loss: 1.754e+00
+Iter: 3300, Loss: 1.885e+00
+Iter: 3400, Loss: 1.761e+00
+Iter: 3500, Loss: 1.604e+00
+Iter: 3600, Loss: 1.745e+00
+Iter: 3700, Loss: 1.859e+00
+Iter: 3800, Loss: 1.768e+00
+Iter: 3900, Loss: 1.654e+00
+Iter: 4000, Loss: 1.595e+00
+Validation accuracy: 0.8622366288492707. Best accuracy: 0.8622366288492707
+Iter: 4100, Loss: 1.505e+00
+Iter: 4200, Loss: 1.999e+00
+Iter: 4300, Loss: 1.535e+00
+Iter: 4400, Loss: 1.561e+00
+Iter: 4500, Loss: 1.577e+00
+Iter: 4600, Loss: 1.558e+00
+Iter: 4700, Loss: 1.539e+00
+Iter: 4800, Loss: 1.685e+00
+Iter: 4900, Loss: 1.828e+00
+Iter: 5000, Loss: 1.648e+00
+Validation accuracy: 0.8727714748784441. Best accuracy: 0.8727714748784441
+Iter: 5100, Loss: 1.665e+00
+Iter: 5200, Loss: 1.482e+00
+Iter: 5300, Loss: 1.433e+00
+Iter: 5400, Loss: 1.661e+00
+Iter: 5500, Loss: 1.632e+00
+Iter: 5600, Loss: 1.481e+00
+Iter: 5700, Loss: 1.693e+00
+Iter: 5800, Loss: 1.414e+00
+Iter: 5900, Loss: 1.452e+00
+Iter: 6000, Loss: 1.669e+00
+Validation accuracy: 0.8606158833063209. Best accuracy: 0.8727714748784441
+Iter: 6100, Loss: 1.475e+00
+Iter: 6200, Loss: 1.372e+00
+Iter: 6300, Loss: 1.809e+00
+Iter: 6400, Loss: 1.760e+00
+Iter: 6500, Loss: 1.584e+00
+Iter: 6600, Loss: 1.425e+00
+Iter: 6700, Loss: 1.683e+00
+Iter: 6800, Loss: 1.632e+00
+Iter: 6900, Loss: 1.791e+00
+Iter: 7000, Loss: 1.500e+00
+Validation accuracy: 0.8691247974068071. Best accuracy: 0.8727714748784441
+Iter: 7100, Loss: 1.688e+00
+Iter: 7200, Loss: 1.415e+00
+Iter: 7300, Loss: 1.648e+00
+Iter: 7400, Loss: 1.605e+00
+Iter: 7500, Loss: 1.512e+00
+Iter: 7600, Loss: 1.693e+00
+Iter: 7700, Loss: 1.365e+00
+Iter: 7800, Loss: 1.607e+00
+Iter: 7900, Loss: 1.467e+00
+Iter: 8000, Loss: 1.550e+00
+Validation accuracy: 0.8727714748784441. Best accuracy: 0.8727714748784441
+Iter: 8100, Loss: 1.478e+00
+Iter: 8200, Loss: 1.796e+00
+Iter: 8300, Loss: 1.526e+00
+Iter: 8400, Loss: 1.424e+00
+Iter: 8500, Loss: 1.771e+00
+Iter: 8600, Loss: 1.560e+00
+Iter: 8700, Loss: 1.637e+00
+Iter: 8800, Loss: 1.529e+00
+Iter: 8900, Loss: 1.655e+00
+Iter: 9000, Loss: 1.398e+00
+Validation accuracy: 0.8812803889789304. Best accuracy: 0.8812803889789304
+Iter: 9100, Loss: 1.548e+00
+Iter: 9200, Loss: 1.666e+00
+Iter: 9300, Loss: 1.606e+00
+Iter: 9400, Loss: 1.503e+00
+Iter: 9500, Loss: 1.479e+00
+Iter: 9600, Loss: 1.587e+00
+Iter: 9700, Loss: 1.498e+00
+Iter: 9800, Loss: 1.546e+00
+Iter: 9900, Loss: 1.517e+00
+Iter: 10000, Loss: 1.491e+00
+Validation accuracy: 0.88290113452188. Best accuracy: 0.88290113452188
+Iter: 10100, Loss: 1.485e+00
+Iter: 10200, Loss: 1.531e+00
+Iter: 10300, Loss: 1.486e+00
+Iter: 10400, Loss: 1.374e+00
+Iter: 10500, Loss: 1.399e+00
+Iter: 10600, Loss: 1.767e+00
+Iter: 10700, Loss: 1.391e+00
+Iter: 10800, Loss: 1.643e+00
+Iter: 10900, Loss: 1.510e+00
+Iter: 11000, Loss: 1.561e+00
+Validation accuracy: 0.8865478119935171. Best accuracy: 0.8865478119935171
+Iter: 11100, Loss: 1.486e+00

@@ -164,3 +164,4 @@ cython_debug/
 # Local tooling and seminar data
 .codex
 seminars/seminar_11/data/
+!*.log
